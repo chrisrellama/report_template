@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Files</title>
+</head>
+<body>
+    <h1>Upload Excel and Word Template</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="excel_file">Excel File:</label>
+        <input type="file" name="excel_file" required><br><br>
+        <label for="template_file">Word Template:</label>
+        <input type="file" name="template_file" required><br><br>
+        <input type="submit" value="Upload and Generate Reports">
+    </form>
+
+    {% if reports %}
+    <h2>Generated Reports:</h2>
+    <ul>
+        {% for report in reports %}
+        <li>
+            <a href="/uploads/{{ basename(report) }}" download>Download Report {{ loop.index }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

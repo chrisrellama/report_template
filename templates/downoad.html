@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Reports</title>
+</head>
+<body>
+    <h1>Reports Generated Successfully</h1>
+    <ul>
+        {% for file in files %}
+        <li><a href="/{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
